@@ -1,0 +1,53 @@
+﻿Routing
+	* Attack and routing orders might need to be broken down to several orders with shorter distance each.
+		This way ships won't travel from one end of the map to the other render them useless meanwhile.
+
+		There are several approaches that can be used to break down orders into shorter paths:
+			- A* (advanced)
+				http://ai-contest.com/forum/viewtopic.php?f=17&t=894
+			- Hops (simple)
+				hop(a, b)
+					for ( 0 -> maxDeviation) 
+					for (planet c = 0 -> planetCount)
+					if (dist(a,c) + dist(b,c) <= (dist(a,b) + maxDeviation)) return c
+
+	* Så længe vi har et positivt neutralbudget, så router vi enten slet ikke, eller vi router i retning af den næste på listen over neutrale planeter, altså den vi sparer op til at overtage.
+
+Turn 1:
+	* (Might) Need specialized algorithm
+
+
+NEDSÆT BUDGET
+	Desværre vil de være sådan, at hvis vi angriber fremad, og der gør vi vel tit, så øger vi fjendens mulighed for at snipe os, formodentlig ved et BRUTE FORCE SNIPE eller direkte ALLOUT.
+	Eksempel:
+	Fjenden er 10 væk. Råt budget er 50. Vi sender 40 bagud, og 10 fremad direkte mod fjenden mod en saftig 5'er planet forsvaret af 9 og med afstand 4 for os (og dermed 6 for fjenden). Fjenden venter i tur 1, og angriber os i tur 2, med ankomst i tur 8 med 105 styrker. Vores forsvar er:
+	1 + produktion + større fra hovedplanet =
+	1 + (6-4)*5 + (50+3*5) = 76
+	Det vil sige, at det oprindelige budget skal nedsættes med 105-71= 34.
+	Nyt revideret budget = 21
+ 
+	 Der er altså budgetoverskridelse og angrebsplanen skal SKRINLÆGGES.
+	Vi skipper nu den planet med lavest score.
+	Og genberegner budget.
+	Og så videre, indtil vi har overholder budgettet.
+
+Forsvar
+ 
+- når frontplanet er under angreb, i tur 8 med styrke 40
+- forsøg at finde forsvar helt op til 40 i tur 8
+- frem for at bruge planetens egne tropper
+- det frigiver planetens tropper til angreb.
+ 
+Men jeg kan godt, se, at det er noget af en udvidelse, at kunne have "krav" på fremtidig produktoin
+Til gengæld er det ikke rart, at hvis vi har produktion 50 og i ALLOUT så har vi til enhver tid 50 stående klar, og vil ALDRIG kunne forsvare os imod et 75 angreb...
+
+OPSPARING ELLER ALLOUT
+ 
+I den situation, at vi intet kan angribe, opstår spørgsmålet, skal vi gå ALLOUT eller skal vi spare op til næste runde.
+Det er helt oplagt vanskeligt at svare på, da alle parametre jo ændrer sig over tid.
+Aktuelt går vi ALLOUT og taber hyppigt på det.
+ 
+Indlæg i stedet denne forespørgsel:
+ 
+HVIS FA > FF + PF * DF så ALLOUT
+ELLERS opsparing.

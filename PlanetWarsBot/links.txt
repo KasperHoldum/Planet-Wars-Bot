@@ -1,0 +1,27 @@
+﻿C# setup: http://ai-contest.com/forums/viewtopic.php?f=18&t=430
+rule specification: http://ai-contest.com/specification.php
+similiar game: http://www.galcon.com/flash/
+
+Most common failures: http://ai-contest.com/forums/viewtopic.php?f=18&t=567
+
+debug / replay manager: http://ai-contest.com/forum/viewtopic.php?f=18&t=610
+
+basic strategy:
+---------------------
+måleparemetre
+a1/a2=antallet af mine/fjendens skibe (fratræk kendte tab ved angreb på neutrale)
+b1/b2=min/fjendens produktion per tid (tillæg accepterede planter fjenden erobrere, lille tidsfejl for ikke erobrede planter)
+c=afstand målt i tid mellem vore to nærmeste planeter (upræcist mål, burde måske være afstanden mellem det med skibe vægtede gennemsnit af vore planeter: altså find det punkt, man bedst kan beskrive at summen af mine skibe befinder sig, har jeg fx 2 skibe i (100,100) og 1 i (0,200), så vil det være (50% af (2*100+0),50% af 2*100+200)=(100,133) )
+
+find nu en angrib fjenden tilstand eller en angrib neutrale tilstand eller opbyg og vent tilstand
+
+- angrib og udslet fjenden, hvis jeg er stærk nok, nemlig når a1>a2+b2*c (alternativt (a1+b1*c)*90% (parameter) > a2+b2*c), kan formodentlige gøre ALLOUT og acceptere modangreb (vi accepterer lille fejlmulighed).
+- alternativt angrib og decimer fjenden, hvis jeg er klart foran: a1>a2 & b1>b2, dog således at HVIS fjenden sender angreb mod neutral, så gør det samme (kan optimeres til en mulig bedre handling, nemlig hvis fjenden angriber en for stor neutral, men pyt for nu). Og angreb foretages ved at sende en passende lille mængde skibe afsted i en konstant strøm.
+- alternativt kig efter neutrale og angrib, under forudsætning af at: A) neutral størrelse <= 0,5*c, så mange som muligt, med en eller anden plan for at tage dem, som giver mest (stor produktion, lav styrke, tættere på midten, oplagt at lave prioriteret rækkenfølge af neutrale mål parameterstyret).
+- når vi hertil, sker det altså pt. intet. Kig nu på, hvilken vej vinden blæser: hvis b1>b2, så vinder vi på inaktivitet, så gør intet, udover at at spejle fjendens angreb på neutrale.
+- alternativt lav et stort sats, vi er på vej til at blive udproduceret. Find en snedig angrebsmetode, som totalt forvirrer fjenden, begynd måske blot med den allerede definerede angrib og udslet fjenden
+
+ROUTING
+
+Siden Rasmus er så glad for det :=)
+I det omfang skibe ikke er allokeret til andet (forsvar/angreb), så flyt dem i mindst mulige skridt mod midten (egentlig vægtet gennemsnit for hvor alle skibe befinder sig, jvf. ovenfor, alternativt det punkt, som minimerer afstanden til alle andre planeter, vægtet for skibe på planeterne). Sæt en (parameterstyre) grænse for, hvor mange som flytter sig, og dermed hvor meget vi har i reserve. Evt. en andel af vores samlede styrke, som altid skal stå på jorden.

@@ -1,0 +1,22 @@
+﻿All out attack
+
+Defence
+	* Future production from planets needs to be taken into consideration in the defensive algorithm
+
+Routing
+	* Attack and routing orders might need to be broken down to several orders with shorter distance each.
+		This way ships won't travel from one end of the map to the other render them useless meanwhile.
+
+		There are several approaches that can be used to break down orders into shorter paths:
+			- A* (advanced)
+				http://ai-contest.com/forum/viewtopic.php?f=17&t=894
+			- Hops (simple)
+				hop(a, b)
+					for ( 0 -> maxDeviation) 
+					for (planet c = 0 -> planetCount)
+					if (dist(a,c) + dist(b,c) <= (dist(a,b) + maxDeviation)) return c
+Turn 1:
+	* (might) need specialized algorithm
+
+Attack
+	Should be more willing to conquer neutral planets

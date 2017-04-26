@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BatchRunner.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SolutionBase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\Qua\Desktop\Fanny_Heirdoo Suite\Run</Value>
+    </Setting>
+    <Setting Name="KasperSolutionBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Qua\Desktop\Fanny_Heirdoo Suite\Run</Value>
+    </Setting>
+    <Setting Name="CarstenSolutionBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Carsten\Documents\Visual Studio 2010\Projects\PlanetWarsBot - Athena\Run</Value>
+    </Setting>
+    <Setting Name="LaptopSolution" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\Qua\Documents\Visual Studio 2010\Projects\PlanetWarsBot - Athena\Run</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

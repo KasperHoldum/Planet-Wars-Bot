@@ -1,0 +1,15 @@
+Commandline to start TCP matches
+tcp.exe 72.44.46.68 995 Athena -p roflmao1337 "C:\Users\Qua\Desktop\Fanny_Heirdoo Suite\Athena\bin\Debug\AthenaBot.exe"
+
+http://72.44.46.68/getplayer?player=Athena
+
+Mono compile script:
+gmcs -warn:0 -out:MyBot.exe Vector.cs Athena.cs Tuple.cs Fleet.cs MyBot.cs Planet.cs PlanetWars.cs Defender.cs Player.cs Attacker.cs Router.cs Oracle.cs
+
+
+rule specification: http://ai-contest.com/specification.php
+similiar game: http://www.galcon.com/flash/
+
+Most common failures: http://ai-contest.com/forums/viewtopic.php?f=18&t=567
+
+debug / replay manager: http://ai-contest.com/forum/viewtopic.php?f=18&t=610

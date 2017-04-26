@@ -1,0 +1,3 @@
+@echo Checking if it can compile...
+"C:\Program Files\Mono-1.2.6\bin\gmcs.bat" -warn:0 -out:MyBot.exe Vector.cs Athena.cs Tuple.cs Fleet.cs MyBot.cs Planet.cs PlanetWars.cs Defender.cs Player.cs Attacker.cs Router.cs
+pause

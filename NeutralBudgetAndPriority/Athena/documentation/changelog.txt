@@ -1,0 +1,55 @@
+﻿Athena
+
+Change log
+
+11-11-2010 Version 1.6
+----------------------
+ * Neutral planet algorithm rewritten (neutral budget, extended budget, priority, execution, 2nd execution)
+ * Defence now takes into account future owned planets
+ * Routing now happens internally between front line planets according to enemy CoM
+
+08-01-2010 Version 1.5
+----------------------
+ * During increase of production algorithm we never target planets closer or equal distance to the enemy start planets than ours.
+ * Fixed battle resolution algorithm (specifically: 3 force resolution)
+ * Routing now happens before attacking
+ * Routing now happens to future owned planets
+
+31-10-2010 Version 1.4
+--------------
+ * The class Oracle created to handle all predictions
+	- Major reengineered prediction system. Now predicts the future for all planets and does battle resolution on all planets at all turns
+	- Can now predict future conquests/losses for any player
+ * Attacker
+	- All-out: Once started, the attack component will do nothing but all-out
+	- All-out: Takes future enemy conquests into consideration (sniping)
+	- All-out: Now takes future enemy production into account before launching
+	- All-out: Is launched earlier since future enemy losses against neutrals is taken into account
+	- When neither of the conditions for decimate/allout is triggered and there are no interesting neutrals we will all-out.
+	- Production optimizer: Will no longer attack planets that we will own in the future
+	- Production optimizer: Signals if there are still interesting neutral planets, but we just don't have enough forces to take them
+ * Defender
+	- 
+	- 
+
+20-10-2010 Version 1.3
+--------------
+ * Basic defence implemented
+	If we at any point in the future will lose a planet then allied planets will try to assist if they can.
+	Planets under attack will only send out fleets as long as the planet isn't captured as a result. (Budget is respected)
+ * Basic routing implemented
+	A frontline is computed. All non frontline planets will send supplies to the nearest frontline
+
+01-10-2010 Version 1.2
+--------------
+ * Algorithm to increase production through conquest of neutral/enemy planets implemented.
+
+30-09-2010 Version 1.1
+--------------
+ * Basic implementation of the model implemented. Now each component / part logic needs to be optimized
+ * CoM algorithm changed to take fleets on the move into consideration
+ * Added extra bonus for conquering enemy planets (compared to neutrals - since this effectively takes away enemy growth)
+
+29-09-2010 Version 1.0
+--------------
+Basic outline for the logic laid out in code. Several implementations are missing. The bot can play though.
